@@ -1,0 +1,11 @@
+version: '3'
+services:
+  auth-microservice:
+    image: krismata12/auth:latest
+    env_file: .env
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    network_mode: bridge
+    ports:
+      - 3001:3000

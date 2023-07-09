@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express')
 var jwt = require('jsonwebtoken');
 const mysql = require('mysql2/promise');
@@ -7,12 +6,15 @@ const port = 3000
 let connection;
 
 async function connectToDatabase() {
-    console.log('aqui');
+    console.log('aqui sss');
+    console.log(process.env.DB_HOST);
+    console.log(process.env.DB_USER);
     connection = await mysql.createConnection({
         host     : process.env.DB_HOST,
         user     : process.env.DB_USER,
         password : process.env.DB_PASSWORD,
-        database : process.env.DB_DATABASE
+        database : process.env.DB_DATABASE,
+        port: process.env.DB_PORT,
       });
       
     await connection.connect();
