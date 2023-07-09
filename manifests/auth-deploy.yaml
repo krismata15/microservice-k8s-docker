@@ -5,7 +5,7 @@ metadata:
   labels:
     app: auth
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: auth
@@ -22,7 +22,7 @@ spec:
         - name: auth
           image: krismata12/auth
           ports:
-            - containerPort: 5000
+            - containerPort: 3000
           envFrom:
             - configMapRef:
                 name: auth-configmap
